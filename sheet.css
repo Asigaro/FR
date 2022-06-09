@@ -10,8 +10,8 @@
     top: 0;
     left: -130px;
     background-color: peru;
-    width: 17px;
-    height: 17px;
+    width: 14px;
+    height: 14px;
     border-radius: 8px;
     animation: updown 1.5s infinite;
     transition: 500ms;
@@ -28,12 +28,19 @@
 @keyframes updown {
     0% {
         top: 0;
+        left: -130px;
     }
     50% {
-        top: 50px;
+        top: 25px;
+        left: -110px;
+    }
+    75% {
+        top: 0;
+        left: -90px;
     }
     100% {
         top: 0;
+        left: -130px;
     }
 }
 .logo:after {
