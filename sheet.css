@@ -13,7 +13,7 @@
     width: 14px;
     height: 14px;
     border-radius: 8px;
-    animation: updown 1.5s infinite;
+    animation: updown 1.5s ;
     transition: 500ms;
 }
 .logo:hover::before {
@@ -52,7 +52,7 @@
     width: 11px;
     height: 11px;
     border-radius: 8px;
-    animation: rightleft 5s infinite;
+    animation: rightleft 5s ;
 }
 @keyframes rightleft {
     0% {    
