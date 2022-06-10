@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Canvas Follow Mouse</title>
-    <style>
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=P8hzZ4L4v1PpqvARRfCeHGf23yVabZvez4MKdES4QgxidQZa-57AkxYukHhr0bIBFPOx47sU5SqLTJtTQYRbxOWQUurzlJULa8ql8kzLGWsi4a8UDLLVa7ZhgUC3KoKmDiU7Q9cOMKbYC5qg7CH5Gw" charset="UTF-8"></script><style>
       canvas {
         border: #333 10px solid;
       } 
@@ -14,26 +14,30 @@
 <body>
   <canvas id="myCanvas" width="550px" height="350px"></canvas> 
   <script>
-    var canvas = document.querySelector("#myCanvas");
-    var context = canvas.getContext("2d");
-    function update() {
-  context.beginPath();
-  context.arc(100, 100, 50, 0, 2 * Math.PI, true);
-  context.fillStyle = "#FF6A6A";
-  context.fill();
-}
+var canvas;
+var context;
 var mouseX = 0;
 var mouseY = 0;
+var canvasPos;
 
-canvas.addEventListener("mousemove", setMousePosition, false);
+function init() {
+    canvas = document.querySelector("#myCanvas");
+    context = canvas.getContext("2d");
+    canvasPos = getPosition(canvas);
+	mouseX = 0;
+	mouseY = 0;
+
+	canvas.addEventListener("mousemove", setMousePosition, false);
+	update();
+}
 
 function setMousePosition(e) {
-    mouseX = e.clientX - canvasPos.x;
+  mouseX = e.clientX - canvasPos.x;
   mouseY = e.clientY - canvasPos.y;
 }
 
 function update() {
-    context.clearRect(0, 0, canvas.width, canvas.height);
+  context.clearRect(0, 0, canvas.width, canvas.height);
   context.beginPath();
   context.arc(mouseX, mouseY, 50, 0, 2 * Math.PI, true);
   context.fillStyle = "#FF6A6A";
@@ -41,7 +45,7 @@ function update() {
 
   requestAnimationFrame(update);
 }
-update();   
+  
 function getPosition(el) {
   var xPosition = 0;
   var yPosition = 0;
@@ -56,6 +60,8 @@ function getPosition(el) {
     y: yPosition
   };
 }
+
+window.onload = init;
   </script> 
 </body>
 </html>
